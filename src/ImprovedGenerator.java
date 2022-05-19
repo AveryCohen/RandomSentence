@@ -27,10 +27,21 @@ public class ImprovedGenerator {
     }
 
     public static void readInputFile(File filename) throws IOException {
+        Scanner scan = new Scanner(filename);
+        for (int i = 0; i<filename.length(); i++) {
+            allWords.add(scan.next());
+        }
+
 
     }
 
     public static void createMap() {
+        ArrayList<String> key = new ArrayList<String>;
+        for (int j = 0; j< allWords.size(); j++) {
+            for (int k = 0; k<SEED-1; k++) {
+                key.add(allWords())
+            }
+        }
 
 
     }
