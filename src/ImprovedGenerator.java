@@ -19,10 +19,10 @@ public class ImprovedGenerator {
      */
     public static void main(String[] args) throws IOException  {
 
-        File file = new File("files/sample.txt"); // change this name for different input files.
+        File file = new File("files/alice.txt"); // change this name for different input files.
         readInputFile(file);
         createMap();
-        //generateText();
+        generateText();
 
     }
 
@@ -52,7 +52,7 @@ public class ImprovedGenerator {
                 seeds.put(key, value);
             }
         }
-        System.out.println(seeds);
+        //System.out.println(seeds);
     }
 
     /**
@@ -76,6 +76,17 @@ public class ImprovedGenerator {
     }
 
     public static void generateText() {
+        String text = "";
+        ArrayList<String> startingKey = getStartingKey();
+        for (int i = 0; i < 60; i++) {
+            ArrayList<String> values = seeds.get(startingKey);
+            String temp = values.get((int)Math.random() * (values.size()));
+            text += temp + " ";
+            startingKey.remove(0);
+            startingKey.add(temp);
+        }
+        System.out.println(text);
+
 
     }
 
